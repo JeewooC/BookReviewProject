@@ -1,0 +1,35 @@
+{% extends 'layout.html' %}
+{% block title %}Register{% endblock %}
+{% block body %}
+
+{% if cond %}
+<div class="alert {{ type }}">{{ message }}</div>
+{% endif %}
+<div>
+    <form action="{{ url_for('register') }}" method="post">
+        <div class="form-group">
+            <label for="firstname">First Name</label>
+             <input class="form-control" type="text" name="firstname" placeholder="First Name"> <br>
+        </div>
+
+        <div class="form-group">
+            <label for="lastname">Last Name</label>
+             <input class="form-control" type="text" name="lastname" placeholder="Last Name"> <br>
+        </div>
+
+        <div class="form-group">
+            <label for="username">Username <small style="color: darkred">*</small></label>
+            <input class="form-control" type="text" name="username" placeholder="Username" required> <br>
+        </div>
+
+        <div class="form-group">
+            <label for="password">Password <small style="color: darkred">*</small></label>
+            <input class="form-control" type="password" name="password" placeholder="Password" required> <br>
+        </div>
+        <div class="form-group">
+            <small style="color: darkred">Ones with * are necessary</small>
+        </div>
+        <button class="btn btn-outline-dark btn-lg" type="submit">Submit</button>
+    </form>
+</div>
+{% endblock %}

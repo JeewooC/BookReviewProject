@@ -1,0 +1,9 @@
+{% extends 'layout.html' %}
+{% block title %}Home{% endblock %}
+{% block body %}
+{% if cond %}
+<h1 class="display-4" style="text-align: center">WELCOME {{ user }}</h1>
+{% else %}
+<h1 class="display-4" style="text-align: center">HOME</h1>
+{% endif %}
+{% endblock %}

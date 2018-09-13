@@ -1,0 +1,21 @@
+{% extends 'layout.html' %}
+{% block title %} Search {% endblock %}
+{% block body %}
+    <form action="{{ url_for('search') }}" method="post" class="form-inline">
+        <div class="form-group" style="margin: auto; margin-bottom: 40px">
+            <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search" name="search" style="width: 650px; height: 50px" required>
+            <button id="searchbtn" class="btn btn-dark" type="submit" style="height: 50px">Search</button>
+        </div>
+    </form>
+    {% if result %}
+    <ul class="list-group">
+        <li class="list-group-item bg-dark" style="color: white; height: 75px"><h1>{{count}} matches for "{{ input }}"</h1></li>
+    </ul>
+        {% for book in books %}
+            <a href="/book/{{book.isbn}}" class="list-group-item list-group-item-action">
+               <h6><b>{{ book.title }} - {{book.year}}</b> by <i>{{book.author}}</i> [ISBN: {{book.isbn}}]</h6>
+            </a>
+        {% endfor %}
+
+    {% endif %}
+{% endblock %}
